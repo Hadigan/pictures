@@ -1,0 +1,884 @@
+<5>ueventd: ueventd started!
+<5>ueventd: Linking partition 'EFI System Partition' as 'EFI_System_Partition'
+<5>ueventd: Coldboot took 1.97s.
+<3>ueventd: start loop<5>ueventd: Linking partition 'EFI System Partition' as 'EFI_System_Partition'
+processes
+<5>init: (Loading properties from /default.prop took 0.00s.)
+<6>init: Created socket '/dev/socket/property_service' with mode '666', user '0', group '0'
+<6>init: Parsing file /init.rc...
+<6>init: Added '/init.environ.rc' to import list
+<6>init: Added '/init.usb.rc' to import list
+<6>init: Added '/init.ranchu.rc' to import list
+<6>init: Added '/init.usb.configfs.rc' to import list
+<6>init: Added '/init.zygote64_32.rc' to import list
+<6>init: Parsing file /init.environ.rc...
+<5>init: (Parsing /init.environ.rc took 0.00s.)
+<6>init: Parsing file /init.usb.rc...
+<5>init: (Parsing /init.usb.rc took 0.00s.)
+<6>init: Parsing file /init.ranchu.rc...
+<5>init: (Parsing /init.ranchu.rc took 0.00s.)
+<6>init: Parsing file /init.usb.configfs.rc...
+<5>init: (Parsing /init.usb.configfs.rc took 0.00s.)
+<6>init: Parsing file /init.zygote64_32.rc...
+<5>init: (Parsing /init.zygote64_32.rc took 0.00s.)
+<5>init: (Parsing /init.rc took 0.00s.)
+<6>init: processing action (early-init)
+<6>init: Command 'write /proc/1/oom_score_adj -1000' action=early-init (/init.rc:15) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/sysrq 0' action=early-init (/init.rc:18) returned 0 took 0.00s
+<6>init: Command 'restorecon /adb_keys' action=early-init (/init.rc:21) returned -2 took 0.00s
+<6>init: Command 'mkdir /mnt 0775 root system' action=early-init (/init.rc:24) returned 0 took 0.00s
+<6>init: Command 'restorecon /postinstall' action=early-init (/init.rc:27) returned -2 took 0.00s
+<5>init: Starting service 'ueventd'...
+<6>init: Command 'start ueventd' action=early-init (/init.rc:29) returned 0 took 0.00s
+<6>init: Command 'mount debugfs debugfs /sys/kernel/debug' action=early-init (/init.ranchu.rc:8) returned 0 took 0.00s
+<6>init: processing action (wait_for_coldboot_done)
+<5>init: Waiting for /dev/.coldboot_done...
+<3>init: Timed out waiting for /dev/.coldboot_done
+<5>init: Waiting for /dev/.coldboot_done took 1.01s.
+<6>init: Command 'wait_for_coldboot_done' action=wait_for_coldboot_done returned 0 took 1.01s
+<6>init: processing action (mix_hwrng_into_linux_rng)
+<3>init: Failed to read from /dev/hw_random: No such device
+<6>init: Command 'mix_hwrng_into_linux_rng' action=mix_hwrng_into_linux_rng returned -1 took 0.00s
+<6>init: processing action (set_mmap_rnd_bits)
+<6>init: Command 'set_mmap_rnd_bits' action=set_mmap_rnd_bits returned 0 took 0.00s
+<6>init: processing action (keychord_init)
+<6>init: Command 'keychord_init' action=keychord_init returned 0 took 0.00s
+<6>init: processing action (console_init)
+<6>init: Command 'console_init' action=console_init returned 0 took 0.00s
+<6>init: processing action (init)
+<6>init: Command 'sysclktz 0' action=init (/init.rc:32) returned 0 took 0.00s
+<6>init: Command 'copy /proc/cmdline /dev/urandom' action=init (/init.rc:35) returned 0 took 0.00s
+<6>init: Command 'copy /default.prop /dev/urandom' action=init (/init.rc:36) returned 0 took 0.00s
+<6>init: Command 'symlink /system/etc /etc' action=init (/init.rc:39) returned -1 took 0.00s
+<6>init: Command 'symlink /sys/kernel/debug /d' action=init (/init.rc:40) returned -1 took 0.00s
+<6>init: Command 'symlink /system/vendor /vendor' action=init (/init.rc:43) returned -1 took 0.00s
+<6>init: Command 'mount cgroup none /acct cpuacct' action=init (/init.rc:46) returned -1 took 0.00s
+<6>init: Command 'mkdir /acct/uid' action=init (/init.rc:47) returned 0 took 0.00s
+<6>init: Command 'mkdir /dev/stune' action=init (/init.rc:50) returned 0 took 0.00s
+<6>init: Command 'mount cgroup none /dev/stune schedtune' action=init (/init.rc:51) returned -1 took 0.00s
+<6>init: Command 'mkdir /dev/stune/foreground' action=init (/init.rc:52) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/stune' action=init (/init.rc:53) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/stune/foreground' action=init (/init.rc:54) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/stune/tasks' action=init (/init.rc:55) returned -2 took 0.00s
+<6>init: Command 'chown system system /dev/stune/foreground/tasks' action=init (/init.rc:56) returned -2 took 0.00s
+<6>init: Command 'chmod 0664 /dev/stune/tasks' action=init (/init.rc:57) returned -2 took 0.00s
+<6>init: Command 'chmod 0664 /dev/stune/foreground/tasks' action=init (/init.rc:58) returned -2 took 0.00s
+<6>init: Command 'mount tmpfs tmpfs /mnt mode=0755,uid=0,gid=1000' action=init (/init.rc:62) returned 0 took 0.00s
+<6>init: Command 'restorecon_recursive /mnt' action=init (/init.rc:63) returned 0 took 0.00s
+<6>init: Command 'mount configfs none /config' action=init (/init.rc:65) returned 0 took 0.00s
+<6>init: Command 'chmod 0775 /config/sdcardfs' action=init (/init.rc:66) returned -2 took 0.00s
+<6>init: Command 'chown system package_info /config/sdcardfs' action=init (/init.rc:67) returned -2 took 0.00s
+<6>init: Command 'mkdir /mnt/secure 0700 root root' action=init (/init.rc:69) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/secure/asec 0700 root root' action=init (/init.rc:70) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/asec 0755 root system' action=init (/init.rc:71) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/obb 0755 root system' action=init (/init.rc:72) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/media_rw 0750 root media_rw' action=init (/init.rc:73) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/user 0755 root root' action=init (/init.rc:74) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/user/0 0755 root root' action=init (/init.rc:75) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/expand 0771 system system' action=init (/init.rc:76) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/appfuse 0711 root root' action=init (/init.rc:77) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/runtime 0700 root root' action=init (/init.rc:80) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/runtime/default 0755 root root' action=init (/init.rc:81) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/runtime/default/self 0755 root root' action=init (/init.rc:82) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/runtime/read 0755 root root' action=init (/init.rc:83) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/runtime/read/self 0755 root root' action=init (/init.rc:84) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/runtime/write 0755 root root' action=init (/init.rc:85) returned 0 took 0.00s
+<6>init: Command 'mkdir /mnt/runtime/write/self 0755 root root' action=init (/init.rc:86) returned 0 took 0.00s
+<6>init: Command 'symlink /storage/self/primary /sdcard' action=init (/init.rc:89) returned -1 took 0.00s
+<6>init: Command 'symlink /storage/self/primary /mnt/sdcard' action=init (/init.rc:90) returned 0 took 0.00s
+<6>init: Command 'symlink /mnt/user/0/primary /mnt/runtime/default/self/primary' action=init (/init.rc:91) returned 0 took 0.00s
+<6>init: Command 'mkdir /dev/memcg 0700 root system' action=init (/init.rc:94) returned 0 took 0.00s
+<6>init: Command 'mount cgroup none /dev/memcg memory' action=init (/init.rc:95) returned 0 took 0.00s
+<6>init: Command 'mkdir /dev/memcg/apps/ 0755 system system' action=init (/init.rc:97) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/panic_on_oops 1' action=init (/init.rc:99) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/hung_task_timeout_secs 0' action=init (/init.rc:100) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/proc/cpu/alignment': No such file or directory
+<6>init: Command 'write /proc/cpu/alignment 4' action=init (/init.rc:101) returned -1 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/sched_tunable_scaling 0' action=init (/init.rc:107) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/sched_latency_ns 10000000' action=init (/init.rc:108) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000' action=init (/init.rc:109) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/proc/sys/kernel/sched_compat_yield': No such file or directory
+<6>init: Command 'write /proc/sys/kernel/sched_compat_yield 1' action=init (/init.rc:110) returned -1 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/sched_child_runs_first 0' action=init (/init.rc:111) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/randomize_va_space 2' action=init (/init.rc:113) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/kptr_restrict 2' action=init (/init.rc:114) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/vm/mmap_min_addr 32768' action=init (/init.rc:115) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/net/ipv4/ping_group_range 0 2147483647' action=init (/init.rc:116) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/net/unix/max_dgram_qlen 600' action=init (/init.rc:117) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/kernel/sched_rt_runtime_us 950000' action=init (/init.rc:118) returned 0 took 0.07s
+<6>init: Command 'write /proc/sys/kernel/sched_rt_period_us 1000000' action=init (/init.rc:119) returned 0 took 0.06s
+<6>init: Command 'write /proc/sys/net/ipv4/fwmark_reflect 1' action=init (/init.rc:122) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/net/ipv6/fwmark_reflect 1' action=init (/init.rc:123) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/net/ipv4/tcp_fwmark_accept 1' action=init (/init.rc:126) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/net/ipv4/conf/all/accept_redirects 0' action=init (/init.rc:129) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/net/ipv6/conf/all/accept_redirects 0' action=init (/init.rc:130) returned 0 took 0.00s
+<6>init: Command 'mkdir /dev/cpuctl' action=init (/init.rc:133) returned 0 took 0.00s
+<6>init: Command 'mount cgroup none /dev/cpuctl cpu' action=init (/init.rc:134) returned -1 took 0.00s
+<6>init: Command 'chown system system /dev/cpuctl' action=init (/init.rc:135) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuctl/tasks' action=init (/init.rc:136) returned -2 took 0.00s
+<6>init: Command 'chmod 0666 /dev/cpuctl/tasks' action=init (/init.rc:137) returned -2 took 0.00s
+<6>init: Command 'write /dev/cpuctl/cpu.shares 1024' action=init (/init.rc:138) returned 0 took 0.00s
+<6>init: Command 'write /dev/cpuctl/cpu.rt_runtime_us 800000' action=init (/init.rc:139) returned 0 took 0.00s
+<6>init: Command 'write /dev/cpuctl/cpu.rt_period_us 1000000' action=init (/init.rc:140) returned 0 took 0.00s
+<6>init: Command 'mkdir /dev/cpuctl/bg_non_interactive' action=init (/init.rc:142) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuctl/bg_non_interactive/tasks' action=init (/init.rc:143) returned -2 took 0.00s
+<6>init: Command 'chmod 0666 /dev/cpuctl/bg_non_interactive/tasks' action=init (/init.rc:144) returned -2 took 0.00s
+<6>init: Command 'write /dev/cpuctl/bg_non_interactive/cpu.shares 52' action=init (/init.rc:146) returned 0 took 0.00s
+<6>init: Command 'write /dev/cpuctl/bg_non_interactive/cpu.rt_runtime_us 700000' action=init (/init.rc:147) returned 0 took 0.00s
+<6>init: Command 'write /dev/cpuctl/bg_non_interactive/cpu.rt_period_us 1000000' action=init (/init.rc:148) returned 0 took 0.00s
+<6>init: Command 'mkdir /dev/cpuset' action=init (/init.rc:151) returned 0 took 0.00s
+<6>init: Command 'mount cpuset none /dev/cpuset' action=init (/init.rc:152) returned 0 took 0.00s
+<6>init: Command 'mkdir /dev/cpuset/foreground' action=init (/init.rc:156) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/foreground/cpus': Permission denied
+<6>init: Command 'write /dev/cpuset/foreground/cpus 0' action=init (/init.rc:157) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/foreground/mems': Permission denied
+<6>init: Command 'write /dev/cpuset/foreground/mems 0' action=init (/init.rc:158) returned -1 took 0.00s
+<6>init: Command 'mkdir /dev/cpuset/foreground/boost' action=init (/init.rc:159) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/foreground/boost/cpus': Permission denied
+<6>init: Command 'write /dev/cpuset/foreground/boost/cpus 0' action=init (/init.rc:160) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/foreground/boost/mems': Permission denied
+<6>init: Command 'write /dev/cpuset/foreground/boost/mems 0' action=init (/init.rc:161) returned -1 took 0.00s
+<6>init: Command 'mkdir /dev/cpuset/background' action=init (/init.rc:162) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/background/cpus': Permission denied
+<6>init: Command 'write /dev/cpuset/background/cpus 0' action=init (/init.rc:163) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/background/mems': Permission denied
+<6>init: Command 'write /dev/cpuset/background/mems 0' action=init (/init.rc:164) returned -1 took 0.00s
+<6>init: Command 'mkdir /dev/cpuset/system-background' action=init (/init.rc:169) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/system-background/cpus': Permission denied
+<6>init: Command 'write /dev/cpuset/system-background/cpus 0' action=init (/init.rc:170) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/system-background/mems': Permission denied
+<6>init: Command 'write /dev/cpuset/system-background/mems 0' action=init (/init.rc:171) returned -1 took 0.00s
+<6>init: Command 'mkdir /dev/cpuset/top-app' action=init (/init.rc:173) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/top-app/cpus': Permission denied
+<6>init: Command 'write /dev/cpuset/top-app/cpus 0' action=init (/init.rc:174) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/dev/cpuset/top-app/mems': Permission denied
+<6>init: Command 'write /dev/cpuset/top-app/mems 0' action=init (/init.rc:175) returned -1 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset' action=init (/init.rc:178) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/foreground' action=init (/init.rc:179) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/foreground/boost' action=init (/init.rc:180) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/background' action=init (/init.rc:181) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/system-background' action=init (/init.rc:182) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/top-app' action=init (/init.rc:183) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/tasks' action=init (/init.rc:184) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/foreground/tasks' action=init (/init.rc:185) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/foreground/boost/tasks' action=init (/init.rc:186) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/background/tasks' action=init (/init.rc:187) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/system-background/tasks' action=init (/init.rc:188) returned 0 took 0.00s
+<6>init: Command 'chown system system /dev/cpuset/top-app/tasks' action=init (/init.rc:189) returned 0 took 0.00s
+<6>init: Command 'chmod 0775 /dev/cpuset/system-background' action=init (/init.rc:192) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /dev/cpuset/foreground/tasks' action=init (/init.rc:194) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /dev/cpuset/foreground/boost/tasks' action=init (/init.rc:195) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /dev/cpuset/background/tasks' action=init (/init.rc:196) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /dev/cpuset/system-background/tasks' action=init (/init.rc:197) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /dev/cpuset/top-app/tasks' action=init (/init.rc:198) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /dev/cpuset/tasks' action=init (/init.rc:199) returned 0 took 0.00s
+<6>init: Command 'chown root net_bw_acct /proc/net/xt_qtaguid/ctrl' action=init (/init.rc:205) returned -2 took 0.00s
+<6>init: Command 'chown root net_bw_stats /proc/net/xt_qtaguid/stats' action=init (/init.rc:206) returned -2 took 0.00s
+<6>init: Command 'chmod 0644 /dev/xt_qtaguid' action=init (/init.rc:210) returned -2 took 0.00s
+<6>init: Command 'mkdir /dev/fscklogs 0770 root system' action=init (/init.rc:214) returned 0 took 0.00s
+<6>init: Command 'mount pstore pstore /sys/fs/pstore' action=init (/init.rc:217) returned 0 took 0.00s
+<6>init: Command 'chown system log /sys/fs/pstore/console-ramoops' action=init (/init.rc:218) returned -2 took 0.00s
+<6>init: Command 'chmod 0440 /sys/fs/pstore/console-ramoops' action=init (/init.rc:219) returned -2 took 0.00s
+<6>init: Command 'chown system log /sys/fs/pstore/pmsg-ramoops-0' action=init (/init.rc:220) returned -2 took 0.00s
+<6>init: Command 'chmod 0440 /sys/fs/pstore/pmsg-ramoops-0' action=init (/init.rc:221) returned -2 took 0.00s
+<5>init: write_file: Unable to open '/proc/sys/abi/swp': No such file or directory
+<6>init: Command 'write /proc/sys/abi/swp 1' action=init (/init.rc:224) returned -1 took 0.00s
+<6>init: Command 'symlink /proc/self/fd /dev/fd' action=init (/init.rc:228) returned 0 took 0.00s
+<6>init: Command 'export ANDROID_BOOTLOGO 1' action=init (/init.environ.rc:3) returned 0 took 0.00s
+<6>init: Command 'export ANDROID_ROOT /system' action=init (/init.environ.rc:4) returned 0 took 0.00s
+<6>init: Command 'export ANDROID_ASSETS /system/app' action=init (/init.environ.rc:5) returned 0 took 0.00s
+<6>init: Command 'export ANDROID_DATA /data' action=init (/init.environ.rc:6) returned 0 took 0.00s
+<6>init: Command 'export ANDROID_STORAGE /storage' action=init (/init.environ.rc:7) returned 0 took 0.00s
+<6>init: Command 'export EXTERNAL_STORAGE /sdcard' action=init (/init.environ.rc:8) returned 0 took 0.00s
+<6>init: Command 'export ASEC_MOUNTPOINT /mnt/asec' action=init (/init.environ.rc:9) returned 0 took 0.00s
+<6>init: Command 'export BOOTCLASSPATH /system/framework/core-oj.jar:/system/framework/core-libart.jar:/system/framework/conscrypt.jar:/system/framework/okhttp.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/apache-xml.jar:/system/framework/org.apache.http.legacy.boot.jar' action=init (/init.environ.rc:10) returned 0 took 0.00s
+<6>init: Command 'export SYSTEMSERVERCLASSPATH /system/framework/services.jar:/system/framework/ethernet-service.jar:/system/framework/wifi-service.jar' action=init (/init.environ.rc:11) returned 0 took 0.00s
+<6>init: Command 'symlink /dev/goldfish_pipe /dev/android_pipe' action=init (/init.ranchu.rc:12) returned 0 took 0.00s
+<6>init: Command 'symlink /dev/goldfish_pipe /dev/qemu_pipe' action=init (/init.ranchu.rc:13) returned 0 took 0.00s
+<6>init: processing action (mix_hwrng_into_linux_rng)
+<3>init: Failed to read from /dev/hw_random: No such device
+<6>init: Command 'mix_hwrng_into_linux_rng' action=mix_hwrng_into_linux_rng returned -1 took 0.00s
+<6>init: processing action (late-init)
+<6>init: Command 'trigger early-fs' action=late-init (/init.rc:251) returned 0 took 0.00s
+<6>init: Command 'trigger fs' action=late-init (/init.rc:252) returned 0 took 0.00s
+<6>init: Command 'trigger post-fs' action=late-init (/init.rc:253) returned 0 took 0.00s
+<6>init: Command 'trigger load_system_props_action' action=late-init (/init.rc:258) returned 0 took 0.00s
+<6>init: Command 'trigger post-fs-data' action=late-init (/init.rc:262) returned 0 took 0.00s
+<6>init: Command 'trigger load_persist_props_action' action=late-init (/init.rc:263) returned 0 took 0.00s
+<6>init: Command 'trigger firmware_mounts_complete' action=late-init (/init.rc:266) returned 0 took 0.00s
+<6>init: Command 'trigger early-boot' action=late-init (/init.rc:268) returned 0 took 0.00s
+<6>init: Command 'trigger boot' action=late-init (/init.rc:269) returned 0 took 0.00s
+<6>init: processing action (queue_property_triggers)
+<6>init: Command 'queue_property_triggers' action=queue_property_triggers returned 0 took 0.00s
+<6>init: processing action (fs)
+<3>init: Jerry do_mount_all: fstabfile = /fstab.ranchu
+<3>fs_mgr: Jerry fs_mgr_mount_all: b5
+<3>fs_mgr: Jerry fs_mgr_mount_all: b6
+<6>fs_mgr: __mount(source=/dev/block/sdb7,target=/system,type=ext4)=0
+<3>fs_mgr: Jerry fs_mgr_mount_all: mret = 0
+<3>fs_mgr: Jerry fs_mgr_mount_all: mount_errno = 17
+<3>init: Jerry do_mount_all: child_ret = 0
+<3>init: Jerry do_mount_all: ret = 0
+<6>init: Parsing directory /system/etc/init...
+<6>init: Parsing file /system/etc/init/vdc.rc...
+<5>init: (Parsing /system/etc/init/vdc.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/cameraserver.rc...
+<5>init: (Parsing /system/etc/init/cameraserver.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/debuggerd64.rc...
+<5>init: (Parsing /system/etc/init/debuggerd64.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/debuggerd.rc...
+<5>init: (Parsing /system/etc/init/debuggerd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/audioserver.rc...
+<5>init: (Parsing /system/etc/init/audioserver.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/mtpd.rc...
+<5>init: (Parsing /system/etc/init/mtpd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/init-debug.rc...
+<5>init: (Parsing /system/etc/init/init-debug.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/keystore.rc...
+<5>init: (Parsing /system/etc/init/keystore.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/bootanim.rc...
+<5>init: (Parsing /system/etc/init/bootanim.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/netd.rc...
+<5>init: (Parsing /system/etc/init/netd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/bootstat.rc...
+<5>init: (Parsing /system/etc/init/bootstat.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/dumpstate.rc...
+<5>init: (Parsing /system/etc/init/dumpstate.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/vold.rc...
+<5>init: (Parsing /system/etc/init/vold.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/mediaserver.rc...
+<5>init: (Parsing /system/etc/init/mediaserver.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/lmkd.rc...
+<5>init: (Parsing /system/etc/init/lmkd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/mediaextractor.rc...
+<5>init: (Parsing /system/etc/init/mediaextractor.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/rild.rc...
+<5>init: (Parsing /system/etc/init/rild.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/uncrypt.rc...
+<5>init: (Parsing /system/etc/init/uncrypt.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/mediadrmserver.rc...
+<5>init: (Parsing /system/etc/init/mediadrmserver.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/mediacodec.rc...
+<5>init: (Parsing /system/etc/init/mediacodec.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/drmserver.rc...
+<5>init: (Parsing /system/etc/init/drmserver.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/logcatd.rc...
+<5>init: (Parsing /system/etc/init/logcatd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/racoon.rc...
+<5>init: (Parsing /system/etc/init/racoon.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/logd.rc...
+<5>init: (Parsing /system/etc/init/logd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/mdnsd.rc...
+<5>init: (Parsing /system/etc/init/mdnsd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/servicemanager.rc...
+<5>init: (Parsing /system/etc/init/servicemanager.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/gatekeeperd.rc...
+<5>init: (Parsing /system/etc/init/gatekeeperd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/perfprofd.rc...
+<5>init: (Parsing /system/etc/init/perfprofd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/surfaceflinger.rc...
+<5>init: (Parsing /system/etc/init/surfaceflinger.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/installd.rc...
+<5>init: (Parsing /system/etc/init/installd.rc took 0.00s.)
+<6>init: Parsing file /system/etc/init/atrace.rc...
+<5>init: (Parsing /system/etc/init/atrace.rc took 0.00s.)
+<6>init: Parsing file /vendor/etc/init...
+<6>init: Parsing file /odm/etc/init...
+<6>init: Command 'mount_all /fstab.ranchu' action=fs (/init.ranchu.rc:2) returned 0 took 0.00s
+<6>init: processing action (post-fs)
+<6>init: computing context for service '/system/bin/logd'
+<5>init: Starting service 'logd'...
+<6>init: Command 'start logd' action=post-fs (/init.rc:273) returned 0 took 0.00s
+<6>init: Command 'mount rootfs rootfs / ro remount' action=post-fs (/init.rc:275) returned -1 took 0.00s
+<6>init: Command 'mount rootfs rootfs / shared rec' action=post-fs (/init.rc:277) returned 0 took 0.00s
+<6>init: Command 'mount none /mnt/runtime/default /storage slave bind rec' action=post-fs (/init.rc:279) returned 0 took 0.00s
+<6>init: Created socket '/dev/socket/logd' with mode '666', user '1036', group '1036'
+<6>init: Created socket '/dev/socket/logdr' with mode '666', user '1036', group '1036'
+<6>init: Created socket '/dev/socket/logdw' with mode '222', user '1036', group '1036'
+<3>init: couldn't write 13 to /dev/cpuset/system-background/tasks: No space left on device
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/hwlat_detector:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/stack_trace_filter:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/stack_trace:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/stack_max_size:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/uprobe_profile:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/uprobe_events:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/kprobe_profile:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/kprobe_events:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/set_event_pid:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/events:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/set_event:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/available_events:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/max_graph_depth:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/printk_formats:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/instances:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/dyn_ftrace_total_info:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/saved_cmdlines_size:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/saved_cmdlines:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/README:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/tracing_thresh:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/function_profile_enabled:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/trace_stat:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/set_graph_notrace:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/set_graph_function:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/set_ftrace_notrace:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/set_ftrace_filter:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/enabled_functions:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/available_filter_functions:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/set_ftrace_pid:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/per_cpu:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/snapshot:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/tracing_max_latency:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/options:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/tracing_on:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/trace_clock:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/trace_marker_raw:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/trace_marker:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/free_buffer:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/buffer_total_size_kb:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/buffer_size_kb:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/trace_pipe:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/trace:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/trace_options:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/tracing_cpumask:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/current_tracer:  Operation not supported on transport endpoint
+<3>init: SELinux: Could not set context for /sys/kernel/debug/tracing/available_tracers:  Operation not supported on transport endpoint
+<6>init: Command 'restorecon_recursive /sys/kernel/debug' action=post-fs (/init.rc:282) returned 0 took 0.01s
+<6>init: Command 'chown system cache /cache' action=post-fs (/init.rc:285) returned 0 took 0.00s
+<6>init: Command 'chmod 0770 /cache' action=post-fs (/init.rc:286) returned 0 took 0.00s
+<6>init: SELinux: Skipping restorecon_recursive(/cache)
+<6>init: Command 'restorecon_recursive /cache' action=post-fs (/init.rc:288) returned 0 took 0.00s
+<6>init: Command 'mkdir /cache/recovery 0770 system cache' action=post-fs (/init.rc:292) returned 0 took 0.00s
+<6>init: Command 'mkdir /cache/backup_stage 0700 system system' action=post-fs (/init.rc:295) returned 0 took 0.00s
+<6>init: Command 'mkdir /cache/backup 0700 system system' action=post-fs (/init.rc:296) returned 0 took 0.00s
+<6>init: Command 'chown root log /proc/vmallocinfo' action=post-fs (/init.rc:299) returned 0 took 0.00s
+<6>init: Command 'chmod 0440 /proc/vmallocinfo' action=post-fs (/init.rc:300) returned 0 took 0.00s
+<6>init: Command 'chown root log /proc/slabinfo' action=post-fs (/init.rc:302) returned 0 took 0.00s
+<6>init: Command 'chmod 0440 /proc/slabinfo' action=post-fs (/init.rc:303) returned 0 took 0.00s
+<6>init: Command 'chown root system /proc/kmsg' action=post-fs (/init.rc:306) returned 0 took 0.00s
+<6>init: Command 'chmod 0440 /proc/kmsg' action=post-fs (/init.rc:307) returned 0 took 0.00s
+<6>init: Command 'chown root system /proc/sysrq-trigger' action=post-fs (/init.rc:308) returned 0 took 0.00s
+<6>init: Command 'chmod 0220 /proc/sysrq-trigger' action=post-fs (/init.rc:309) returned 0 took 0.00s
+<6>init: Command 'chown system log /proc/last_kmsg' action=post-fs (/init.rc:310) returned -2 took 0.00s
+<6>init: Command 'chmod 0440 /proc/last_kmsg' action=post-fs (/init.rc:311) returned -2 took 0.00s
+<6>init: Command 'chmod 0444 /sys/fs/selinux/policy' action=post-fs (/init.rc:314) returned 0 took 0.00s
+<6>init: Command 'mkdir /cache/lost+found 0770 root root' action=post-fs (/init.rc:317) returned 0 took 0.00s
+<6>init: processing action (load_system_props_action)
+<5>init: (Loading properties from /system/build.prop took 0.00s.)
+<5>init: (Loading properties from /vendor/build.prop took 0.00s.)
+<5>init: (Loading properties from /factory/factory.prop took 0.00s.)
+<3>init: /recovery not specified in fstab
+<6>init: Command 'load_system_props' action=load_system_props_action (/init.rc:238) returned 0 took 0.00s
+<6>init: processing action (post-fs-data)
+<6>init: Command 'chown system system /data' action=post-fs-data (/init.rc:321) returned 0 took 0.00s
+<6>init: Command 'chmod 0771 /data' action=post-fs-data (/init.rc:322) returned 0 took 0.00s
+<6>init: Command 'restorecon /data' action=post-fs-data (/init.rc:324) returned 0 took 0.00s
+<6>init: computing context for service '/system/bin/debuggerd'
+<5>init: Starting service 'debuggerd'...
+<6>init: Command 'start debuggerd' action=post-fs-data (/init.rc:327) returned 0 took 0.00s
+<6>init: computing context for service '/system/bin/debuggerd64'
+<5>init: Starting service 'debuggerd64'...
+<6>init: Command 'start debuggerd64' action=post-fs-data (/init.rc:328) returned 0 took 0.00s
+<6>init: computing context for service '/system/bin/vold'
+<3>init: couldn't write 18 to /dev/cpuset/system-background/tasks: No space left on device
+<5>init: Starting service 'vold'...
+<3>init: couldn't write 19 to /dev/cpuset/system-background/tasks: No space left on device
+<6>init: Command 'start vold' action=post-fs-data (/init.rc:331) returned 0 took 0.00s
+<6>init: Command 'installkey /data' action=post-fs-data (/init.rc:332) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/bootchart 0755 shell shell' action=post-fs-data (/init.rc:336) returned 0 took 0.00s
+<5>init: Not bootcharting.
+<6>init: Command 'bootchart_init' action=post-fs-data (/init.rc:337) returned 0 took 0.00s
+<6>init: Command 'copy /data/system/entropy.dat /dev/urandom' action=post-fs-data (/init.rc:340) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc 01771 system misc' action=post-fs-data (/init.rc:343) returned 0 took 0.00s
+<6>init: Created socket '/dev/socket/vold' with mode '660', user '0', group '1009'
+<6>init: Command 'mkdir /data/misc/bluedroid 02770 bluetooth net_bt_stack' action=post-fs-data (/init.rc:344) returned 0 took 0.00s
+<6>init: Command 'chmod 0660 /data/misc/bluedroid/bt_config.conf' action=post-fs-data (/init.rc:346) returned -2 took 0.00s
+<6>init: Command 'chown bluetooth net_bt_stack /data/misc/bluedroid/bt_config.conf' action=post-fs-data (/init.rc:347) returned -2 took 0.00s
+<6>init: Created socket '/dev/socket/cryptd' with mode '660', user '0', group '1009'
+<6>init: Command 'mkdir /data/misc/bluetooth 0770 system system' action=post-fs-data (/init.rc:348) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/keystore 0700 keystore keystore' action=post-fs-data (/init.rc:349) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/gatekeeper 0700 system system' action=post-fs-data (/init.rc:350) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/keychain 0771 system system' action=post-fs-data (/init.rc:351) returned 0 took 0.00s
+<3>init: couldn't write 20 to /dev/cpuset/foreground/tasks: No space left on device
+<6>init: Command 'mkdir /data/misc/net 0750 root shell' action=post-fs-data (/init.rc:352) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/radio 0770 system radio' action=post-fs-data (/init.rc:353) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/sms 0770 system radio' action=post-fs-data (/init.rc:354) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/zoneinfo 0775 system system' action=post-fs-data (/init.rc:355) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/vpn 0770 system vpn' action=post-fs-data (/init.rc:356) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/shared_relro 0771 shared_relro shared_relro' action=post-fs-data (/init.rc:357) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/systemkeys 0700 system system' action=post-fs-data (/init.rc:358) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/wifi 0770 wifi wifi' action=post-fs-data (/init.rc:359) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/wifi/sockets 0770 wifi wifi' action=post-fs-data (/init.rc:360) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi' action=post-fs-data (/init.rc:361) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/ethernet 0770 system system' action=post-fs-data (/init.rc:362) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/dhcp 0770 dhcp dhcp' action=post-fs-data (/init.rc:363) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/user 0771 root root' action=post-fs-data (/init.rc:364) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/perfprofd 0775 root root' action=post-fs-data (/init.rc:365) returned 0 took 0.00s
+<6>init: Command 'chmod 0660 /data/misc/wifi/wpa_supplicant.conf' action=post-fs-data (/init.rc:367) returned -2 took 0.00s
+<6>init: Command 'mkdir /data/local 0751 root root' action=post-fs-data (/init.rc:368) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/media 0700 media media' action=post-fs-data (/init.rc:369) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/audioserver 0700 audioserver audioserver' action=post-fs-data (/init.rc:370) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/cameraserver 0700 cameraserver cameraserver' action=post-fs-data (/init.rc:371) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/vold 0700 root root' action=post-fs-data (/init.rc:372) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/boottrace 0771 system shell' action=post-fs-data (/init.rc:373) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/update_engine 0700 root root' action=post-fs-data (/init.rc:374) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/trace 0700 root root' action=post-fs-data (/init.rc:375) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/profiles 0771 system system' action=post-fs-data (/init.rc:377) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/profiles/cur 0771 system system' action=post-fs-data (/init.rc:378) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/profiles/ref 0771 system system' action=post-fs-data (/init.rc:379) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/profman 0770 system shell' action=post-fs-data (/init.rc:380) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/local/tmp 0771 shell shell' action=post-fs-data (/init.rc:384) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/data 0771 system system' action=post-fs-data (/init.rc:385) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/app-private 0771 system system' action=post-fs-data (/init.rc:386) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/app-ephemeral 0771 system system' action=post-fs-data (/init.rc:387) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/app-asec 0700 root root' action=post-fs-data (/init.rc:388) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/app-lib 0771 system system' action=post-fs-data (/init.rc:389) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/app 0771 system system' action=post-fs-data (/init.rc:390) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/property 0700 root root' action=post-fs-data (/init.rc:391) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/tombstones 0771 system system' action=post-fs-data (/init.rc:392) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/dalvik-cache 0771 root root' action=post-fs-data (/init.rc:395) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/ota 0771 root root' action=post-fs-data (/init.rc:397) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/resource-cache 0771 system system' action=post-fs-data (/init.rc:400) returned 0 took 0.00s
+<6>init: Command 'chown system system /data/resource-cache' action=post-fs-data (/init.rc:401) returned 0 took 0.00s
+<6>init: Command 'chmod 0771 /data/resource-cache' action=post-fs-data (/init.rc:402) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/lost+found 0770 root root' action=post-fs-data (/init.rc:405) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/drm 0770 drm drm' action=post-fs-data (/init.rc:409) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/mediadrm 0770 mediadrm mediadrm' action=post-fs-data (/init.rc:413) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/anr 0775 system system' action=post-fs-data (/init.rc:415) returned 0 took 0.00s
+<6>init: Command 'rm /data/bugreports' action=post-fs-data (/init.rc:418) returned 0 took 0.00s
+<6>init: Command 'symlink /data/user_de/0/com.android.shell/files/bugreports /data/bugreports' action=post-fs-data (/init.rc:419) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/security 0711 system system' action=post-fs-data (/init.rc:422) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/backup 0700 system system' action=post-fs-data (/init.rc:426) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/ss 0700 system system' action=post-fs-data (/init.rc:427) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/system 0775 system system' action=post-fs-data (/init.rc:429) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/system/heapdump 0700 system system' action=post-fs-data (/init.rc:430) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/system/users 0775 system system' action=post-fs-data (/init.rc:431) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/system_de 0770 system system' action=post-fs-data (/init.rc:433) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/system_ce 0770 system system' action=post-fs-data (/init.rc:434) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc_de 01771 system misc' action=post-fs-data (/init.rc:436) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc_ce 01771 system misc' action=post-fs-data (/init.rc:437) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/user 0711 system system' action=post-fs-data (/init.rc:439) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/user_de 0711 system system' action=post-fs-data (/init.rc:440) returned 0 took 0.00s
+<6>init: Command 'symlink /data/data /data/user/0' action=post-fs-data (/init.rc:441) returned -1 took 0.00s
+<6>init: Command 'mkdir /data/media 0770 media_rw media_rw' action=post-fs-data (/init.rc:443) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/media/obb 0770 media_rw media_rw' action=post-fs-data (/init.rc:444) returned 0 took 0.00s
+<6>ext4_utils: init_user0 result: 0
+<6>init: Command 'init_user0' action=post-fs-data (/init.rc:446) returned 0 took 1.03s
+<6>init: SELinux: Attempting to reload policy files
+<6>init: SELinux: Loaded file_contexts contexts from /file_contexts.bin.
+<6>init: SELinux: Loaded property_contexts from /property_contexts.
+<6>init: Command 'setprop selinux.reload_policy 1' action=post-fs-data (/init.rc:449) returned 0 took 0.00s
+<6>init: SELinux: Skipping restorecon_recursive(/data)
+<6>init: Command 'restorecon_recursive /data' action=post-fs-data (/init.rc:452) returned 0 took 0.00s
+<6>init: computing context for service '/system/bin/tzdatacheck'
+<5>init: Starting service 'exec 1 (/system/bin/tzdatacheck)'...
+<6>init: SVC_EXEC pid 29 (uid 1000 gid 1000+0 context default) started; waiting...
+<6>init: Command 'exec - system system -- /system/bin/tzdatacheck /system/usr/share/zoneinfo /data/misc/zoneinfo' action=post-fs-data (/init.rc:455) returned 0 took 0.00s
+<5>init: Service 'exec 1 (/system/bin/tzdatacheck)' (pid 29) exited with status 0
+<6>init: SVC_EXEC pid 29 finished...
+<6>init: Command 'chown system system /sys/class/android_usb/android0/f_mass_storage/lun/file' action=post-fs-data (/init.usb.rc:7) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun/file' action=post-fs-data (/init.usb.rc:8) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/android_usb/android0/f_rndis/ethaddr' action=post-fs-data (/init.usb.rc:9) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr' action=post-fs-data (/init.usb.rc:10) returned -2 took 0.00s
+<6>init: Command 'mkdir /data/misc/adb 02750 system shell' action=post-fs-data (/init.usb.rc:11) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/adb 0700 root root' action=post-fs-data (/init.usb.rc:12) returned 0 took 0.00s
+<6>init: Command 'mkdir /data/misc/bootstat 0700 root root' action=post-fs-data (/system/etc/init/bootstat.rc:4) returned 0 took 0.00s
+<6>init: processing action (load_persist_props_action)
+<5>init: (Loading properties from /data/local.prop took 0.00s.)
+<6>init: Command 'load_persist_props' action=load_persist_props_action (/init.rc:241) returned 0 took 0.10s
+<6>init: Command 'start logd' action=load_persist_props_action (/init.rc:242) returned -1 took 0.00s
+<6>init: computing context for service '/system/bin/logd'
+<5>init: Starting service 'logd-reinit'...
+<6>init: Command 'start logd-reinit' action=load_persist_props_action (/init.rc:243) returned 0 took 0.00s
+<6>init: processing action (firmware_mounts_complete)
+<6>init: Command 'rm /dev/.booting' action=firmware_mounts_complete (/init.rc:247) returned 0 took 0.00s
+<6>init: processing action (boot)
+<6>init: Command 'ifup lo' action=boot (/init.rc:465) returned 0 took 0.00s
+<3>init: couldn't write 30 to /dev/cpuset/system-background/tasks: No space left on device
+<6>init: Command 'hostname localhost' action=boot (/init.rc:466) returned 0 took 0.00s
+<6>init: Command 'domainname localdomain' action=boot (/init.rc:467) returned 0 took 0.00s
+<6>init: Command 'setrlimit 13 40 40' action=boot (/init.rc:470) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/vm/overcommit_memory 1' action=boot (/init.rc:475) returned 0 took 0.00s
+<5>init: write_file: Unable to open '/proc/sys/vm/min_free_order_shift': No such file or directory
+<6>init: Command 'write /proc/sys/vm/min_free_order_shift 4' action=boot (/init.rc:476) returned -1 took 0.00s
+<6>init: Command 'chown root system /sys/module/lowmemorykiller/parameters/adj' action=boot (/init.rc:477) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/module/lowmemorykiller/parameters/adj' action=boot (/init.rc:478) returned 0 took 0.00s
+<6>init: Command 'chown root system /sys/module/lowmemorykiller/parameters/minfree' action=boot (/init.rc:479) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/module/lowmemorykiller/parameters/minfree' action=boot (/init.rc:480) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/vm/dirty_expire_centisecs 200' action=boot (/init.rc:483) returned 0 took 0.00s
+<6>init: Command 'write /proc/sys/vm/dirty_background_ratio 5' action=boot (/init.rc:484) returned 0 took 0.00s
+<6>init: Command 'chown radio system /sys/android_power/state' action=boot (/init.rc:487) returned -2 took 0.00s
+<6>init: Command 'chown radio system /sys/android_power/request_state' action=boot (/init.rc:488) returned -2 took 0.00s
+<6>init: Command 'chown radio system /sys/android_power/acquire_full_wake_lock' action=boot (/init.rc:489) returned -2 took 0.00s
+<6>init: Command 'chown radio system /sys/android_power/acquire_partial_wake_lock' action=boot (/init.rc:490) returned -2 took 0.00s
+<6>init: Command 'chown radio system /sys/android_power/release_wake_lock' action=boot (/init.rc:491) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/power/autosleep' action=boot (/init.rc:492) returned 0 took 0.00s
+<6>init: Command 'chown system system /sys/power/state' action=boot (/init.rc:493) returned 0 took 0.00s
+<6>init: Command 'chown system system /sys/power/wakeup_count' action=boot (/init.rc:494) returned 0 took 0.00s
+<6>init: Command 'chown radio wakelock /sys/power/wake_lock' action=boot (/init.rc:495) returned 0 took 0.00s
+<6>init: Command 'chown radio wakelock /sys/power/wake_unlock' action=boot (/init.rc:496) returned 0 took 0.00s
+<6>init: Command 'chmod 0660 /sys/power/state' action=boot (/init.rc:497) returned 0 took 0.00s
+<6>init: Command 'chmod 0660 /sys/power/wake_lock' action=boot (/init.rc:498) returned 0 took 0.00s
+<6>init: Command 'chmod 0660 /sys/power/wake_unlock' action=boot (/init.rc:499) returned 0 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate' action=boot (/init.rc:501) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_rate' action=boot (/init.rc:502) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_slack' action=boot (/init.rc:503) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_slack' action=boot (/init.rc:504) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time' action=boot (/init.rc:505) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time' action=boot (/init.rc:506) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq' action=boot (/init.rc:507) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq' action=boot (/init.rc:508) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/target_loads' action=boot (/init.rc:509) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/target_loads' action=boot (/init.rc:510) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load' action=boot (/init.rc:511) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load' action=boot (/init.rc:512) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay' action=boot (/init.rc:513) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay' action=boot (/init.rc:514) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/boost' action=boot (/init.rc:515) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boost' action=boot (/init.rc:516) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse' action=boot (/init.rc:517) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost' action=boot (/init.rc:518) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost' action=boot (/init.rc:519) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration' action=boot (/init.rc:520) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration' action=boot (/init.rc:521) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy' action=boot (/init.rc:522) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy' action=boot (/init.rc:523) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq' action=boot (/init.rc:526) returned -2 took 0.00s
+<6>init: Command 'chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq' action=boot (/init.rc:527) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/timed_output/vibrator/enable' action=boot (/init.rc:529) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/keyboard-backlight/brightness' action=boot (/init.rc:530) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/lcd-backlight/brightness' action=boot (/init.rc:531) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/button-backlight/brightness' action=boot (/init.rc:532) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/jogball-backlight/brightness' action=boot (/init.rc:533) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/red/brightness' action=boot (/init.rc:534) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/green/brightness' action=boot (/init.rc:535) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/blue/brightness' action=boot (/init.rc:536) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/red/device/grpfreq' action=boot (/init.rc:537) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/red/device/grppwm' action=boot (/init.rc:538) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/leds/red/device/blink' action=boot (/init.rc:539) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/class/timed_output/vibrator/enable' action=boot (/init.rc:540) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/module/sco/parameters/disable_esco' action=boot (/init.rc:541) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/kernel/ipv4/tcp_wmem_min' action=boot (/init.rc:542) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/kernel/ipv4/tcp_wmem_def' action=boot (/init.rc:543) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/kernel/ipv4/tcp_wmem_max' action=boot (/init.rc:544) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/kernel/ipv4/tcp_rmem_min' action=boot (/init.rc:545) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/kernel/ipv4/tcp_rmem_def' action=boot (/init.rc:546) returned -2 took 0.00s
+<6>init: Command 'chown system system /sys/kernel/ipv4/tcp_rmem_max' action=boot (/init.rc:547) returned -2 took 0.00s
+<6>init: Command 'chown root radio /proc/cmdline' action=boot (/init.rc:548) returned 0 took 0.00s
+<6>init: Command 'setprop net.tcp.default_init_rwnd 60' action=boot (/init.rc:551) returned 0 took 0.00s
+<5>init: Starting service 'healthd'...
+<6>init: computing context for service '/system/bin/lmkd'
+<5>init: Starting service 'lmkd'...
+<6>init: computing context for service '/system/bin/servicemanager'
+<5>init: Starting service 'servicemanager'...
+<6>init: Created socket '/dev/socket/lmkd' with mode '660', user '1000', group '1000'
+<6>init: computing context for service '/system/bin/surfaceflinger'
+<3>init: couldn't write 32 to /dev/cpuset/system-background/tasks: No space left on device
+<5>init: Starting service 'surfaceflinger'...
+<3>init: couldn't write 33 to /dev/cpuset/system-background/tasks: No space left on device
+<6>init: Command 'class_start core' action=boot (/init.rc:553) returned 0 took 0.00s
+<6>init: Command 'setprop sys.usb.configfs 0' action=boot (/init.usb.rc:26) returned 0 took 0.00s
+<3>init: couldn't write 34 to /sys/fs/cgroup/stune/foreground/tasks: No such file or directory
+<6>init: Command 'setprop ro.kernel.qemu 1' action=boot (/init.ranchu.rc:16) returned 0 took 0.00s
+<6>init: Command 'setprop ro.kernel.qemu.gles 0' action=boot (/init.ranchu.rc:17) returned 0 took 0.00s
+<6>init: Command 'setprop ro.radio.use-ppp no' action=boot (/init.ranchu.rc:21) returned 0 took 0.00s
+<3>init: property_set("ro.build.product", "generic") failed
+<6>init: Command 'setprop ro.build.product generic' action=boot (/init.ranchu.rc:22) returned 0 took 0.00s
+<3>init: property_set("ro.product.device", "generic") failed
+<6>init: Command 'setprop ro.product.device generic' action=boot (/init.ranchu.rc:23) returned 0 took 0.00s
+<6>init: Command 'setprop ro.hardware.audio.primary goldfish' action=boot (/init.ranchu.rc:24) returned 0 took 0.00s
+<6>init: Command 'setprop status.battery.state Slow' action=boot (/init.ranchu.rc:27) returned 0 took 0.00s
+<6>init: Command 'setprop status.battery.level 5' action=boot (/init.ranchu.rc:28) returned 0 took 0.00s
+<6>init: Command 'setprop status.battery.level_raw 50' action=boot (/init.ranchu.rc:29) returned 0 took 0.00s
+<6>init: Command 'setprop status.battery.level_scale 9' action=boot (/init.ranchu.rc:30) returned 0 took 0.00s
+<3>init: do_stop: Service dund not found
+<6>init: Command 'stop dund' action=boot (/init.ranchu.rc:46) returned -1 took 0.00s
+<3>init: do_stop: Service akmd not found
+<6>init: Command 'stop akmd' action=boot (/init.ranchu.rc:47) returned -1 took 0.00s
+<6>init: computing context for service '/system/bin/logcat'
+<5>init: Starting service 'goldfish-logcat'...
+<6>init: Command 'start goldfish-logcat' action=boot (/init.ranchu.rc:51) returned 0 took 0.00s
+<3>init: do_start: Service goldfish-setup not found
+<6>init: Command 'start goldfish-setup' action=boot (/init.ranchu.rc:52) returned -1 took 0.00s
+<6>init: Command 'setprop ro.com.google.locationfeatures 1' action=boot (/init.ranchu.rc:57) returned 0 took 0.00s
+<6>init: Command 'chown root mount /sys/kernel/debug/mmc0/mmc0:0001/ext_csd' action=boot (/system/etc/init/dumpstate.rc:3) returned -2 took 0.00s
+<6>init: Command 'chmod 0440 /sys/kernel/debug/mmc0/mmc0:0001/ext_csd' action=boot (/system/etc/init/dumpstate.rc:4) returned -2 took 0.00s
+<6>init: Command 'chmod 0222 /sys/kernel/debug/tracing/trace_marker' action=boot (/system/etc/init/atrace.rc:6) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/trace_clock' action=boot (/system/etc/init/atrace.rc:9) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/buffer_size_kb' action=boot (/system/etc/init/atrace.rc:10) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/options/overwrite' action=boot (/system/etc/init/atrace.rc:11) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/options/print-tgid' action=boot (/system/etc/init/atrace.rc:12) returned -2 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/sched/sched_switch/enable' action=boot (/system/etc/init/atrace.rc:13) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/sched/sched_wakeup/enable' action=boot (/system/etc/init/atrace.rc:14) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/sched/sched_blocked_reason/enable' action=boot (/system/etc/init/atrace.rc:15) returned -2 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/sched/sched_cpu_hotplug/enable' action=boot (/system/etc/init/atrace.rc:16) returned -2 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/power/cpu_frequency/enable' action=boot (/system/etc/init/atrace.rc:17) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/power/cpu_idle/enable' action=boot (/system/etc/init/atrace.rc:18) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/power/clock_set_rate/enable' action=boot (/system/etc/init/atrace.rc:19) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/power/cpu_frequency_limits/enable' action=boot (/system/etc/init/atrace.rc:20) returned -2 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/cpufreq_interactive/enable' action=boot (/system/etc/init/atrace.rc:21) returned -2 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_begin/enable' action=boot (/system/etc/init/atrace.rc:22) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_end/enable' action=boot (/system/etc/init/atrace.rc:23) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_kswapd_wake/enable' action=boot (/system/etc/init/atrace.rc:24) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_kswapd_sleep/enable' action=boot (/system/etc/init/atrace.rc:25) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/binder/binder_transaction/enable' action=boot (/system/etc/init/atrace.rc:26) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/binder/binder_transaction_received/enable' action=boot (/system/etc/init/atrace.rc:27) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/binder/binder_lock/enable' action=boot (/system/etc/init/atrace.rc:28) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/binder/binder_locked/enable' action=boot (/system/etc/init/atrace.rc:29) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/events/binder/binder_unlock/enable' action=boot (/system/etc/init/atrace.rc:30) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/tracing_on' action=boot (/system/etc/init/atrace.rc:32) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/trace_clock' action=boot (/system/etc/init/atrace.rc:34) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/buffer_size_kb' action=boot (/system/etc/init/atrace.rc:35) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/options/overwrite' action=boot (/system/etc/init/atrace.rc:36) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/options/print-tgid' action=boot (/system/etc/init/atrace.rc:37) returned -2 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/sched/sched_switch/enable' action=boot (/system/etc/init/atrace.rc:38) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/sched/sched_wakeup/enable' action=boot (/system/etc/init/atrace.rc:39) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/sched/sched_blocked_reason/enable' action=boot (/system/etc/init/atrace.rc:40) returned -2 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/sched/sched_cpu_hotplug/enable' action=boot (/system/etc/init/atrace.rc:41) returned -2 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/power/cpu_frequency/enable' action=boot (/system/etc/init/atrace.rc:42) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/power/cpu_idle/enable' action=boot (/system/etc/init/atrace.rc:43) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/power/clock_set_rate/enable' action=boot (/system/etc/init/atrace.rc:44) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/power/cpu_frequency_limits/enable' action=boot (/system/etc/init/atrace.rc:45) returned -2 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/cpufreq_interactive/enable' action=boot (/system/etc/init/atrace.rc:46) returned -2 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_begin/enable' action=boot (/system/etc/init/atrace.rc:47) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_end/enable' action=boot (/system/etc/init/atrace.rc:48) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_kswapd_wake/enable' action=boot (/system/etc/init/atrace.rc:49) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_kswapd_sleep/enable' action=boot (/system/etc/init/atrace.rc:50) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/tracing_on' action=boot (/system/etc/init/atrace.rc:51) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/binder/binder_transaction/enable' action=boot (/system/etc/init/atrace.rc:52) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/binder/binder_transaction_received/enable' action=boot (/system/etc/init/atrace.rc:53) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/binder/binder_lock/enable' action=boot (/system/etc/init/atrace.rc:54) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/binder/binder_locked/enable' action=boot (/system/etc/init/atrace.rc:55) returned 0 took 0.00s
+<6>init: Command 'chmod 0664 /sys/kernel/debug/tracing/events/binder/binder_unlock/enable' action=boot (/system/etc/init/atrace.rc:56) returned 0 took 0.00s
+<6>init: Command 'write /sys/kernel/debug/tracing/tracing_on 0' action=boot (/system/etc/init/atrace.rc:59) returned 0 took 0.00s
+<6>init: Command 'chown root shell /sys/kernel/debug/tracing/trace' action=boot (/system/etc/init/atrace.rc:62) returned 0 took 0.00s
+<6>init: Command 'chmod 0660 /sys/kernel/debug/tracing/trace' action=boot (/system/etc/init/atrace.rc:63) returned 0 took 0.00s
+<6>init: processing action (ro.debuggable=1)
+<6>init: Command 'chmod 0773 /data/misc/trace' action=ro.debuggable=1 (/init.rc:636) returned 0 took 0.00s
+<3>init: service 'console' requires console
+<6>init: Command 'start console' action=ro.debuggable=1 (/init.rc:637) returned -1 took 0.00s
+<6>init: processing action (ro.kernel.qemu=1)
+<5>init: Starting service 'adbd'...
+<6>init: Command 'start adbd' action=ro.kernel.qemu=1 (/init.usb.rc:23) returned 0 took 0.00s
+<5>init: Service 'logd-reinit' (pid 30) exited with status 0
+<6>init: processing action (persist.sys.usb.config=*)
+<6>init: Command 'setprop sys.usb.config ${persist.sys.usb.config}' action=persist.sys.usb.config=* (/init.usb.rc:107) returned 0 took 0.00s
+<6>init: processing action (persist.logd.logpersistd=logcatd)
+<6>init: Command 'mkdir /data/misc/logd 0700 logd log' action=persist.logd.logpersistd=logcatd (/system/etc/init/logcatd.rc:3) returned 0 took 0.00s
+<6>init: Created socket '/dev/socket/adbd' with mode '660', user '1000', group '1000'
+<6>init: computing context for service '/system/bin/logcat'
+<5>init: Starting service 'logcatd'...
+<6>init: Command 'start logcatd' action=persist.logd.logpersistd=logcatd (/system/etc/init/logcatd.rc:6) returned 0 took 0.00s
+<6>init: processing action (nonencrypted)
+<3>init: cannot find '/system/bin/update_verifier' (No such file or directory), disabling 'exec 2 (/system/bin/update_verifier)'
+<6>init: Command 'exec - root -- /system/bin/update_verifier nonencrypted' action=nonencrypted (/init.rc:557) returned -1 took 0.00s
+<3>init: cannot find '/system/bin/install-recovery.sh' (No such file or directory), disabling 'flash_recovery'
+<6>init: computing context for service '/system/bin/app_process64'
+<5>init: Starting service 'zygote'...
+<6>init: computing context for service '/system/bin/app_process32'
+<3>init: couldn't write 38 to /dev/cpuset/system-background/tasks: No space left on device
+<5>init: Starting service 'zygote_secondary'...
+<6>init: computing context for service '/system/bin/cameraserver'
+<6>init: Created socket '/dev/socket/zygote' with mode '660', user '0', group '1000'
+<5>init: Starting service 'cameraserver'...
+<3>init: couldn't write 39 to /dev/cpuset/foreground/tasks: No space left on device
+<3>init: couldn't write 39 to /sys/fs/cgroup/stune/foreground/tasks: No such file or directory
+<6>init: Created socket '/dev/socket/zygote_secondary' with mode '660', user '0', group '1000'
+<6>init: computing context for service '/system/bin/audioserver'
+<3>init: couldn't write 40 to /dev/cpuset/foreground/tasks: No space left on device
+<3>init: couldn't write 41 to /dev/cpuset/foreground/tasks: No space left on device
+<5>init: Starting service 'audioserver'...
+<6>init: computing context for service '/system/bin/keystore'
+<5>init: Starting service 'keystore'...
+<3>init: couldn't write 42 to /dev/cpuset/foreground/tasks: No space left on device
+<6>init: computing context for service '/system/bin/netd'
+<3>init: couldn't write 43 to /dev/cpuset/foreground/tasks: No space left on device
+<5>init: Starting service 'netd'...
+<6>init: computing context for service '/system/bin/mediaserver'
+<5>init: Starting service 'media'...
+<6>init: Created socket '/dev/socket/netd' with mode '660', user '0', group '1000'
+<6>init: computing context for service '/system/bin/mediaextractor'
+<3>init: couldn't write 47 to /dev/cpuset/foreground/tasks: No space left on device
+<6>init: Created socket '/dev/socket/dnsproxyd' with mode '660', user '0', group '3003'
+<5>init: Starting service 'mediaextractor'...
+<6>init: Created socket '/dev/socket/mdns' with mode '660', user '0', group '1000'
+<6>init: computing context for service '/system/bin/rild'
+<3>init: couldn't write 48 to /dev/cpuset/foreground/tasks: No space left on device
+<6>init: Created socket '/dev/socket/fwmarkd' with mode '660', user '0', group '3003'
+<5>init: Starting service 'ril-daemon'...
+<6>init: computing context for service '/system/bin/mediadrmserver'
+<5>init: Starting service 'mediadrm'...
+<6>init: computing context for service '/system/bin/mediacodec'
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<5>init: Starting service 'mediacodec'...
+<3>init: couldn't write 50 to /dev/cpuset/foreground/tasks: No space left on device
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: computing context for service '/system/bin/drmserver'
+<3>init: couldn't write 51 to /dev/cpuset/foreground/tasks: No space left on device
+<5>init: Starting service 'drm'...
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<6>init: computing context for service '/system/bin/installd'
+<5>init: Starting service 'installd'...
+<6>init: Command 'class_start main' action=nonencrypted (/init.rc:558) returned 0 took 0.01s
+<5>init: Service 'goldfish-logcat' (pid 35) exited with status 0
+<6>init: computing context for service '/system/bin/fingerprintd'
+<5>init: Starting service 'fingerprintd'...
+<6>init: computing context for service '/system/bin/gatekeeperd'
+<5>init: Starting service 'gatekeeperd'...
+<6>init: Created socket '/dev/socket/installd' with mode '600', user '1000', group '1000'
+<3>init: couldn't write 52 to /dev/cpuset/foreground/tasks: No space left on device
+<6>init: computing context for service '/system/xbin/perfprofd'
+<5>init: Starting service 'perfprofd'...
+<6>init: Command 'class_start late_start' action=nonencrypted (/init.rc:559) returned 0 took 0.00s
+<3>init: couldn't write 55 to /dev/cpuset/system-background/tasks: No space left on device
+<3>init: couldn't write 56 to /dev/cpuset/system-background/tasks: No space left on device
+<6>init: processing action (persist.logd.logpersistd=logcatd)
+<6>init: Command 'mkdir /data/misc/logd 0700 logd log' action=persist.logd.logpersistd=logcatd (/system/etc/init/logcatd.rc:3) returned 0 took 0.00s
+<6>init: Command 'start logcatd' action=persist.logd.logpersistd=logcatd (/system/etc/init/logcatd.rc:6) returned -1 took 0.00s
+<6>init: processing action (sys.usb.config=adb sys.usb.configfs=0)
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/enable': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/enable 0' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:39) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/idVendor': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/idVendor 18d1' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:40) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/idProduct': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/idProduct 4EE7' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:41) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/functions': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/functions ${sys.usb.config}' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:42) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/enable': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/enable 1' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:43) returned -1 took 0.00s
+<6>init: Command 'start adbd' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:44) returned -1 took 0.00s
+<6>init: Command 'setprop sys.usb.state ${sys.usb.config}' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:45) returned 0 took 0.00s
+<6>init: processing action (ro.kernel.qemu=1)
+<6>init: Command 'start adbd' action=ro.kernel.qemu=1 (/init.usb.rc:23) returned -1 took 0.00s
+<6>init: processing action (sys.usb.config=adb sys.usb.configfs=0)
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/enable': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/enable 0' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:39) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/idVendor': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/idVendor 18d1' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:40) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/idProduct': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/idProduct 4EE7' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:41) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/functions': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/functions ${sys.usb.config}' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:42) returned -1 took 0.00s
+<5>init: write_file: Unable to open '/sys/class/android_usb/android0/enable': No such file or directory
+<6>init: Command 'write /sys/class/android_usb/android0/enable 1' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:43) returned -1 took 0.00s
+<6>init: Command 'start adbd' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:44) returned -1 took 0.00s
+<6>init: Command 'setprop sys.usb.state ${sys.usb.config}' action=sys.usb.config=adb sys.usb.configfs=0 (/init.usb.rc:45) returned 0 took 0.00s
+<5>init: Service 'ril-daemon' (pid 49) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 49) killing any children in process group
+<6>init: computing context for service '/system/bin/bootanimation'
+<5>init: Starting service 'bootanim'...
+<6>init: processing action (sys.sysctl.extra_free_kbytes=*)
+<5>init: write_file: Unable to open '/proc/sys/vm/extra_free_kbytes': No such file or directory
+<6>init: Command 'write /proc/sys/vm/extra_free_kbytes ${sys.sysctl.extra_free_kbytes}' action=sys.sysctl.extra_free_kbytes=* (/init.rc:600) returned -1 took 0.00s
+<5>init: Service 'bootanim' (pid 70) exited with status 0
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 629) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 629) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 860) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 860) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 862) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 862) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 868) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 868) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 870) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 870) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 871) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 871) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 874) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 874) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 875) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 875) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 877) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 877) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 878) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 878) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 879) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 879) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 881) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 881) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 882) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 882) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 883) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 883) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 885) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 885) killing any children in process group
+<6>init: computing context for service '/system/bin/rild'
+<5>init: Starting service 'ril-daemon'...
+<6>init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+<6>init: Created socket '/dev/socket/sap_uim_socket1' with mode '660', user '1002', group '1002'
+<6>init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+<5>init: Service 'ril-daemon' (pid 886) exited with status 1
+<3>init: skm  Service 'ril-daemon' (pid 886) killing any children in process group
